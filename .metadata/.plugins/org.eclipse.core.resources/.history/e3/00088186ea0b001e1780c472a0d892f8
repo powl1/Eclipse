@@ -1,0 +1,29 @@
+
+public class EX01 {
+
+	public static void main(String[] args) {
+		int kor = 90;
+		int eng = 70;
+		int mat = 45;
+		int sum = kor + eng + mat;
+		int avr = sum / 3;
+		
+		
+		System.out.println("총점 : " + sum + "점");
+		System.out.println("평균 : " + avr + "점");
+		
+		if ( avr < 90 ) {
+			System.out.println("성적 : 수" );
+		} else {
+			if ( avr < 80 ) {
+				System.out.println("성적 : 미" );
+			} else { 
+				System.out.println("성적 : 양" );
+			}
+		};
+		
+		
+			
+	}
+
+}

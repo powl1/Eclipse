@@ -1,0 +1,21 @@
+
+public class EX01 {
+
+	public static void main(String[] args) {
+		int kor = 90;
+		int eng = 70;
+		int mat = 45;
+		
+		var i = (kor + eng + mat)/3;
+		
+		System.out.println("총점 : " + (kor + eng + mat) + "점");
+		System.out.println("평균 : " + i + "점"));
+		
+		if((i / 3) < 60 )
+			System.out.println("미");
+		
+		
+			
+	}
+
+}

@@ -1,0 +1,18 @@
+
+public class EX01 {
+
+	public static void main(String[] args) {
+		int kor = 90;
+		int eng = 70;
+		int mat = 45;
+		
+		i = kor + eng + mat;
+		
+		System.out.println(i);
+		System.out.println(i / 3);
+		
+		
+			
+	}
+
+}

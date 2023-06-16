@@ -1,0 +1,13 @@
+
+public class Char {
+
+	public static void main(String[] args) {
+
+		char ch =' '; // spacebar - 32bit
+		char ch1 = 65;
+		
+		System.out.println(ch);
+		System.out.println(ch1);
+	}
+
+}
