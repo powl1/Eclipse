@@ -102,4 +102,7 @@
 		<item value="org.springsource.sts.package:3.9.11.201912161221-RELEASE-e413"/>
 		<item value="org.springsource.sts:3.9.11.201912161221-RELEASE"/>
 	</list>
+	<section name="ResourceNavigator">
+		<item key="ResourceViewer.STORE_SORT_TYPE" value="1"/>
+	</section>
 </section>
