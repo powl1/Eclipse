@@ -1,9 +1,0 @@
-public class Boolean {
-
-	public static void main(String[] args) {
-		int num1 = 345;
-        
-        System.out.println((num1 % 2) == 0) && ((num1 % 3) ==0);
-	}
-
-}
