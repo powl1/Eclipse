@@ -34,7 +34,7 @@ public class Home extends HttpServlet {
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		// System.out.println("Hello World!!");
 
-		response.setContentType("text/html; charset=euc-kr");
+		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter writer = response.getWriter();
 
 		writer.println("<html>");
