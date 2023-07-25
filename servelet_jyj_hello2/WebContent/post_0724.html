@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <form action="post" method="post">
+      <input type="submit" name ="post" value="post">
+   </form>
+	<hr>
+	<form action="circleArea" method="post">
+		반지름 : <input type="text" name ="circle" value="10">
+		<input type="submit" value="전송">
+   </form>
+   <hr>
+   <form action="rectangle"> <!-- RectangleSercelet.java 파일에서 @WebServlet("/rectangle") 부분의 내용을 form action의 이름가 맞춰준다. -->
+   	<!-- methode 생략시 method="get"기본적으로 get방식으로 설정됨 -->
+		가로 : <input type="text" name ="width" value="10">
+		세로 : <input type="text" name ="height" value="10">
+		<input type="submit" value="전송">
+   </form>
+   <hr>
+   <form action="grade">
+		국어 : <input type="text" name ="kor" value="70"><br>
+		영어 : <input type="text" name ="eng" value="100"><br>
+		수학 : <input type="text" name ="math" value="65">
+		<input type="submit" value="전송">
+   </form>
+</body>
+</html>

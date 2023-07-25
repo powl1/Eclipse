@@ -111,9 +111,7 @@ public class Java_230720 {
 	}
 }
 
-class Accumulator {
-	
-}
+
 
 class Song {
 	int year;

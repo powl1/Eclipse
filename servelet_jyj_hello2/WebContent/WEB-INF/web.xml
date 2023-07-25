@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<display-name>Servlet</display-name>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<context-param>
+		<param-name>id</param-name>
+		<param-value>scott</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>pw</param-name>
+		<param-value>tiger</param-value>
+	</context-param>
+
+	<listener-class>edu.global.ex.contextListenerEX</listener-class><!--  //내가 만든 리스너 등록 -->
+</web-app>
