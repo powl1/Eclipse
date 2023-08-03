@@ -15,7 +15,7 @@ public class BoardModifyCommand implements BoardCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("BWriteCommand entry.."); // 디버깅을 위한 코드
+		System.out.println("BModifyCommand entry.."); // 디버깅을 위한 코드
 		
 		String bid = request.getParameter("bid");
 		String bname = request.getParameter("bname");

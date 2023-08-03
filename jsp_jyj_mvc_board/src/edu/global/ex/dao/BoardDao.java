@@ -266,6 +266,45 @@ public class BoardDao {
 
 			int rn = stmt.executeUpdate();
 
+			System.out.println("delete 한 갯수" + rn);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// ※제일 나중에 연거를 먼저 닫아줘야한다. Connection, Statement, ResultSet순서로
+			// 열었으므로 거꾸로 닫아준다.
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (con != null)
+					con.close();
+
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+		
+	public void replayView(String bname, String btitle, String bcontent) {
+
+		System.out.println("replayView()...");
+		Connection con = null;
+		PreparedStatement stmt = null;
+
+		try {
+			String query = "insert into mvc_board " // write.jsp 를 inset해준다
+					+ "(bid, bname, btitle, bcontent, bhit, bgroup, bstep, bindent)"
+					+ "values (mvc_board_seq.nextval,?,?,?,0, mvc_board_seq.currval,0,0)"; // mvc_board.seq.nextval 먼저 실행이 되고 mvc_board_seq.currval이 실행이 된다
+			
+			con = datasource.getConnection();
+			stmt = con.prepareStatement(query);
+
+			stmt.setString(1, bname);
+			stmt.setString(2, btitle);
+			stmt.setString(3, bcontent);
+
+			int rn = stmt.executeUpdate();
+
 			System.out.println("write 한 갯수" + rn);
 
 		} catch (Exception e) {

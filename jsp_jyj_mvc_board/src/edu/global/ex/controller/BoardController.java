@@ -94,6 +94,11 @@ public class BoardController extends HttpServlet {
 			command.execute(request, response); // request에 하나 받아온 내용 담긴다
 			// 해당 request 객체를 전달할 view 결정
 			viewPage = "list.do";
+		} else if (com.equals("/reply_view.do")) { // 글 삭제
+			command = new BoardReplayViewCommand();
+			command.execute(request, response); // request에 하나 받아온 내용 담긴다
+			// 해당 request 객체를 전달할 view 결정
+			viewPage = "list.do";
 		}
 		
 		

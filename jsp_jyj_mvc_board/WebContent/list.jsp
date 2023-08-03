@@ -18,7 +18,6 @@
 			<td>히트</td>
 		</tr>
 
-
 		<!-- http://localhost:8282/jsp_jyj_mvc_board/content_view.do?bid=4 -->
 		<c:forEach var="dto" items="${list}">
 			<tr>
