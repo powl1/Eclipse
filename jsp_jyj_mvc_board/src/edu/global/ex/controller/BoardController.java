@@ -14,6 +14,8 @@ import edu.global.ex.Command.BoardContentCommand;
 import edu.global.ex.Command.BoardDeleteCommand;
 import edu.global.ex.Command.BoardListCommand;
 import edu.global.ex.Command.BoardModifyCommand;
+import edu.global.ex.Command.BoardReplyCommand;
+import edu.global.ex.Command.BoardReplyViewCommand;
 import edu.global.ex.Command.BoardWriteCommand;
 
 /**
@@ -95,7 +97,12 @@ public class BoardController extends HttpServlet {
 			// 해당 request 객체를 전달할 view 결정
 			viewPage = "list.do";
 		} else if (com.equals("/reply_view.do")) { // 글 삭제
-			command = new BoardReplayViewCommand();
+			command = new BoardReplyViewCommand();
+			command.execute(request, response); // request에 하나 받아온 내용 담긴다
+			// 해당 request 객체를 전달할 view 결정
+			viewPage = "reply_view.jsp";
+		} else if (com.equals("/reply.do")) { // 글 삭제
+			command = new BoardReplyCommand();
 			command.execute(request, response); // request에 하나 받아온 내용 담긴다
 			// 해당 request 객체를 전달할 view 결정
 			viewPage = "list.do";
