@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <!-- Circle circle = new Circle(10); -->
+   <bean id="circle" class="com.javalec.ex.Circle">
+      <!-- circle.setRadius(10) -->
+      <property name="radius" value="10" />
+   </bean>
+
+   <bean id="circle2" class="com.javalec.ex.Circle">
+      <!-- circle.setRadius(10) -->
+      <property name="radius" value="20" />
+   </bean>
+   
+   <bean id="circle3" class="com.javalec.ex.Circle">
+      <!-- circle.setRadius(10) -->
+      <property name="radius" value="100" />
+   </bean>
+   
+   <!-- Student student = new com.javalec.ex.Student(); -->
+   <bean id="student1" class="com.javalec.ex.Student">
+      <constructor-arg>
+      	<value>홍길동</value>
+      </constructor-arg>
+      <constructor-arg>
+      	<value>10살</value>
+      </constructor-arg>
+   </bean>
+
+</beans>
