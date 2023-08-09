@@ -17,18 +17,28 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>oracle</id>
+			<url>http://www.datanucleus.org/downloads/maven2/</url>
+		</repository>
+	</repositories>
 <!-- 모두 라이브러리  -->
 	<dependencies>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		<dependency><!-- 스프링의 MVC를 담고 있는 기능 : 웹 프로그래밍을 하기 위해서 들어있는 것들이 들어가 있다.
 		톰캣이 포한되어 있는 기능, 서서버 돌린다. -->
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
 		<!-- 대부 틀 : 소스코드 조그만 고치면 리로딩 시키는 기능 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -54,7 +64,27 @@
         	<optional>true</optional>
         </dependency>
         
-	</dependencies>
+        <!-- MyBatis 라이브러리 -->
+		<dependency>
+		   <groupId>org.mybatis.spring.boot</groupId>
+		   <artifactId>mybatis-spring-boot-starter</artifactId>
+		   <version>2.1.4</version>
+		</dependency>
+		
+		<!-- MyBatis sql pretty -->
+		<dependency>
+		   <groupId>org.bgee.log4jdbc-log4j2</groupId>
+		   <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+		   <version>1.16</version>
+		</dependency>
+		
+		<!-- 오라클 JDBC 드라이버 -->
+		     <dependency>
+		         <groupId>oracle</groupId>
+		         <artifactId>ojdbc6</artifactId>
+		         <version>11.2.0.3</version>
+		     </dependency>
+		</dependencies>
 
 	<build>
 		<plugins>
