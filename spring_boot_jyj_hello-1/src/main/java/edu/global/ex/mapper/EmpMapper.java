@@ -12,4 +12,5 @@ public interface EmpMapper {
 	
 	@Select("select * from emp")
 	public List<EmpVO> getList();
+	
 }
