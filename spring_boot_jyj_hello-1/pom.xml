@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+<!-- 제일 먼저 스프링 부트 확인 : 2.6.3 --> <version>2.6.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>edu.global</groupId>
+	<artifactId>ex</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>spring_boot_jyj_hello-1</name>
+	<description>spring boot hello world</description>
+<!--자바 버전  -->
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+<!-- 모두 라이브러리  -->
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency><!-- 스프링의 MVC를 담고 있는 기능 : 웹 프로그래밍을 하기 위해서 들어있는 것들이 들어가 있다.
+		톰캣이 포한되어 있는 기능, 서서버 돌린다. -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- 대부 틀 : 소스코드 조그만 고치면 리로딩 시키는 기능 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<!-- 스프링부트 에서 jsp를 사용하기 위한 라이브러리 -->
+      	<dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>            
+        </dependency>  
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        
+        <!-- 스프링의 롬복 : 겟터 셋터를 더 쉽게 사용할 수 있는 프로그램 -->
+        <dependency>
+        	<groupId>org.projectlombok</groupId>
+        	<artifactId>lombok</artifactId>
+        	<optional>true</optional>
+        </dependency>
+        
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

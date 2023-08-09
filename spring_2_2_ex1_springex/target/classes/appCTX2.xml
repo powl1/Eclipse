@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <!-- Circle circle = new Circle(10); -->
+   <bean id="pencil" class="com.javalec.ex.pencil.Pencil6BWithErase">
+      <!-- id 이름으로 꺼내어 사용한다. -->
+   </bean>
+</beans>
