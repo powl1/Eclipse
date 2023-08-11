@@ -13,7 +13,7 @@ public interface BoardMapper {
 	public List<BoardVO> getList();
 	BoardVO read(int bid); // 파라미터는 url 로 넘어논 bid값을 의미
 	int update(BoardVO board); // 글 수정
-	int delete(int bid); // 글삭제
+	int delete(BoardVO board); // 글삭제
 	public void insert(BoardVO board); // 글작성
 	
 	public void updateShape(BoardVO board);

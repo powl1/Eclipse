@@ -3,9 +3,11 @@ package edu.global.ex.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import edu.global.ex.page.Criteria;
 import edu.global.ex.page.PageVO;
@@ -55,10 +57,10 @@ public class BoardController {
 
 	// http://localhost:8282/board/delete
 	@GetMapping("/delete")
-	public String delete(int bid) {
+	public String delete(BoardVO boardVO) {
 		log.info("delete()...");
 
-		int del = boardService.delete(bid);
+		int del = boardService.remove(boardVO);
 
 		return "redirect:list";
 	}
@@ -117,5 +119,6 @@ public class BoardController {
 
 		return "/board/list2";
 	}
+    
 
 }

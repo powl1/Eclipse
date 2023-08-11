@@ -23,7 +23,7 @@
 		]]>
 	</update>
 
-	<delete id="delete" parameterType="int">
+	<delete id="delete">
 		<![CDATA[
 			delete from mvc_board where bid=#{bid}
 		]]>
