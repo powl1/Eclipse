@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.global.ex.mapper.BoardMapper;
+import edu.global.ex.page.Criteria;
 import edu.global.ex.vo.BoardVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -57,4 +58,13 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 	
+	@Override
+	public int getTotal() {      
+		return boardMapper.getTotalCount();
+	}
+	
+	@Override
+	public List<BoardVO> getListWithPaging(Criteria cri) {
+		return boardMapper.getListWithPaging(cri);
+   }
 }

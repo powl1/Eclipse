@@ -56,9 +56,9 @@
       <![CDATA[
           select count(*) from mvc_board
       ]]>
-	</select>
-
-	<select id="getListWithPaging" resultType="BoardVO">
+   </select>
+   
+   <select id="getListWithPaging" resultType="BoardVO">
       <![CDATA[
         SELECT * FROM (
               SELECT ROWNUM AS RNUM, A.* FROM (
@@ -70,6 +70,6 @@
              ) A WHERE ROWNUM <= #{pageNum} * #{amount}
          ) WHERE RNUM > (#{pageNum}-1) * #{amount}
       ]]>
-	</select>
+   </select>
 
 </mapper>

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.global.ex.page.Criteria;
+import edu.global.ex.page.PageVO;
 import edu.global.ex.service.BoardService;
 import edu.global.ex.vo.BoardVO;
 import lombok.extern.slf4j.Slf4j;
@@ -99,5 +101,21 @@ public class BoardController {
 
        return "redirect:list";
     }
+    
+    @GetMapping("/list2")
+	public String list2(Criteria cri, Model model) {
+		log.info("list2() ..");
+		log.info("list2() Criteria value check" + cri);
+
+		model.addAttribute("boardList", boardService.getListWithPaging(cri));
+		
+		int total = boardService.getTotal();
+		
+		log.info("list2() Board totla count" + total);
+		
+		model.addAttribute("pageMaker", new PageVO(cri, total));
+
+		return "/board/list2";
+	}
 
 }

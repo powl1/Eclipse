@@ -1,5 +1,8 @@
 package edu.global.ex.page;
 
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -37,8 +40,8 @@ public class PageVO {
 		// 현재 페이지가 20일 경우 : Math.ceil(20/10) * 10 = 20
 		// 현재 페이지가 21일 경우 : Math.ceil(21/10) * 10 = 30
 
-		this.startPage = this.endPage - 9;
 		this.endPage = (int)(Math.ceil(cri.getPageNum() / 10.0)) * 10;
+		this.startPage = this.endPage - 9; // endPage 위에 있으면 begin < 0 오류로 작동 안된다.
 
 		// Total을 통한 endPage의 재계산
 		// 10개씩 보여주는 경우, 전체 데이터 수가 80개라고 가정하면 끝번호는 10이 아닌 8이 됨
@@ -54,5 +57,13 @@ public class PageVO {
 		this.next = this.endPage < realEnd; // >>
 
 	}
+	
+	public String makeQuery(int page) {
+      UriComponents uriComponentsBuilder = UriComponentsBuilder.newInstance()
+		.queryParam("pageNum", page) // pageNum =  3
+		.queryParam("amount", cri.getAmount()) // pageNum=3&amount=10
+		.build(); // ?pageNum=3&amount=10
+      return uriComponentsBuilder.toUriString(); // ?pageNum=3&amount=10 리턴
+   }
 
 }
