@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.global.ex.mapper.UserMapper">
+
+	<!-- Map : Mapping 의 약자 -->
+	<!-- DB 테이블하고 VO 객체를 매핑해준다. -->
+	<resultMap id="userMap" type="UserVO">
+		<result property="username" column="username" />
+		<result property="password" column="password" />
+		<result property="enabled" column="enabled" />
+		<collection property="authList" resultMap="authMap"></collection>
+	</resultMap>
+	<!-- resultMap : 1대1 매핑할때 많이 사용을 한다. resultType 과 헷갈리면 안됨. 오류 찾기 힘들어짐. -->
+
+	<resultMap id="authMap" type="AuthVO">
+		<result property="username" column="username" />
+		<result property="authority" column="authority" />
+	</resultMap>
+
+	<select id="getUser" resultMap="userMap">
+		select * from users , authorities
+		where users.username = authorities.username and users.username = #{username}
+	</select>
+</mapper>

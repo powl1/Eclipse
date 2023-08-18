@@ -1,0 +1,71 @@
+===================================================================================================
+스텝 1
+
+dependency만 추가해도 Spring Security에서 제공하는 가장 기본적인 인증이 바로 적용됨
+
+기본 로그인 화면이 가장 먼저 나올 것이다.
+Username : user (기본 계정)
+Password : 비밀번호는 어플리케이션 기동할때 로그로 나오는 Using generated security password 정보
+Using generated security password: 0d07e7fd-0fba-403d-9eff-149ac84f4d56
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+=====================================================================================================
+=====================================================================================================
+스텝 2
+   이미지(가영이)가 보이지 않는다.
+   우선 정적파일들은 시큐리티에 적용되지 않도록 아래와 같이 설정을 한다.
+    이제 더이상 리소스파일들은 스프링 시큐리티에서 관리를 하지 않는다.   
+
+   @Override
+   public void configure(WebSecurity web) throws Exception {
+      // web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
+      web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/lib/**");
+   }
+   
+   여기서 알아야 하는 사실
+   1. 정적리소스(static > .img, .html, .gif 등[자바 문법이 없는 파일들])도 url을 가로채고 있다.
+   2. 스프링 시큐리티는 세션 기반 로그인을 가지고 있다.
+=====================================================================================================
+=====================================================================================================
+스텝 3
+
+이제 설정에서 유저를 생성한후 , 다시 한번 접속해 보자 , 로그인 창에서 아래의 이름과 비밀번호로 접속해 보자. 그럼 헬로우 월드가 보인다.
+   
+   @Override
+   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+       auth.inMemoryAuthentication()
+               .withUser("member").password("{noop}member").roles("USER").and()
+               .withUser("admin").password("{noop}admin").roles("ADMIN");
+   }
+   
+      여기서 알아야 하는 사실
+   1. /logout 으로 로그아웃을 할 수 있다. (/logout 을 시큐리티가 가지고 있더.)
+   2. 테스트용으로 기본적인 유저아이디와 패스워드를 지정할 수 있다.
+=====================================================================================================
+=====================================================================================================
+스텝 4.
+
+home.jsp를 제대로 만들고, 아래와 같이 설정하여 / 로 접속후 home.jsp 가 나오는것을 확인한다.
+
+   @Override
+   protected void configure(HttpSecurity http) throws Exception {
+      //우선 CSRF설정을 해제한다.
+      //초기 개발시만 해주는게 좋다.
+      http.csrf().disable();
+      
+      http.authorizeRequests()
+      .antMatchers("/member/**").hasAnyRole("ROLE_MEMBER") 
+      .antMatchers("/admin/**").hasAnyRole("ROLE_ADMIN")
+      .antMatchers("/**").permitAll();      
+   }
+=====================================================================================================
+=====================================================================================================
+스텝 5. 이제 DB와 연결하며, 커스텀 마이징을 하여보자.
+
+
+=====================================================================================================
+=====================================================================================================
+
+
+
+
