@@ -16,11 +16,25 @@ public class CustomUserDetailsVO implements UserDetails {
 	private String username;
 	private String password;
 	private List<GrantedAuthority> authorities;
+	
+	private CartVO cart;
 
 	public CustomUserDetailsVO(UserVO user) {
 		this.setAuthorities(user);
 		this.setPassword(user.getPassword());
 		this.setUsername(user.getUsername());
+	}
+	
+	public CustomUserDetailsVO(UserVO user, CartVO cart) {
+		this.cart = cart;
+		this.setAuthorities(user);
+		this.setPassword(user.getPassword());
+		this.setUsername(user.getUsername());		
+	}
+	
+	public CartVO getCart() {
+		// TODO Auto-generated method stub
+		return cart;
 	}
 
 	// setter 함수
