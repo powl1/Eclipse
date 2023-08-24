@@ -1,8 +1,5 @@
 package edu.global.ex.vo;
 
-import java.sql.Timestamp;
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

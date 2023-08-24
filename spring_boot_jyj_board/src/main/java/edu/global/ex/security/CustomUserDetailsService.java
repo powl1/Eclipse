@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import edu.global.ex.mapper.UserMapper;
+import edu.global.ex.vo.CartVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
 import edu.global.ex.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
@@ -39,12 +40,15 @@ public class CustomUserDetailsService implements UserDetailsService {
 	// loadUserByUsername[무전기로] 사용법을 알려주는 개념이다.
 		
 		log.info("Load User By UserVO number" + username);
-		
+		CartVO cart = new CartVO();
+		cart.setProduct("콜라");
+
+	      
 		UserVO user = userMapper.getUser(username);
 		
 		log.warn("queride by UserVO mapper : " + user);
 		
-		return user == null ? null : new CustomUserDetailsVO(user); // 5가지이 정보가 필요
+		return user == null ? null : new CustomUserDetailsVO(user,cart); // 5가지이 정보가 필요
 	}
 
 }

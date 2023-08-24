@@ -1,0 +1,17 @@
+스프링에서 CSRF 공격막는 방법
+
+우선 CSRF 설정을 해제한다.
+초기 개발시에만 해주는 게 좋다.
+http.csrf().disable();
+
+form.xml에서 
+
+CSRF토큰은 매번 value값이 바뀌고, hidden으로 포함되어 돌아가기 때문에
+공격자 입장에서는 고정된 쿼리문만 전송해서는 더 이상 명령이 작동되지 않고
+매번 바뀌는 CSRF토큰값을 그때그때 찍어서 맞춰야한다
+사실상 완전방어
+
+로그인.jsp - html 에
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 태그를 넣어주면 된다.
+
+귀찮다면 form태그 앞에 form: 태그를 더 넣어주면 작동이 된다
