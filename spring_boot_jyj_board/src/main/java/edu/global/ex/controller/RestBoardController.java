@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -64,5 +65,16 @@ public class RestBoardController {
 		
 		return rn;
 	}
+    
+    // write
+    // post + "/boards" + "/" +
+    // @RequestBody : json을 자바객체로 넣어 주는 애너테이션
+    @PostMapping("/")
+	public String boards_write(@RequestBody BoardVO boardVO) {
+		log.info("boards_write() ..");
 
+		boardService.register(boardVO);
+		
+		return "SUCCESS";
+	}
 }
